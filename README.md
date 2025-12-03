@@ -1,10 +1,3 @@
-
-<h1 align="center">LUMOS : Image Editor of 2030</h1>
-<p align="center">
- <img width="250" height="828" alt="image" src="https://github.com/user-attachments/assets/b65c498a-5488-4783-8879-c612654ececf" />
-</p>
-<br>
-
 ## Table of Contents
 - [Demo Video](#demo-video)
 - [Introduction](#introduction)
@@ -167,19 +160,16 @@ uvicorn main:backend --host 0.0.0.0 --port 8011
 ```
 13.MagicQuill
 ```bash
-cd backend/magicquill
-git submodule update --init --recursive
-wget -O models.zip "https://hkustconnect-my.sharepoint.com/:u:/g/personal/zliucz_connect_ust_hk/EWlGF0WfawJIrJ1Hn85_-3gB0MtwImAnYeWXuleVQcukMg?e=Gcjugg&download=1"
-unzip models.zip
-python -m venv Magic_venv
-source Magic_venv/bin/activate
-pip install torch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 --index-url https://download.pytorch.org/whl/cu118
-pip install gradio_magicquill-0.0.1-py3-none-any.whl
-#Change "torch==2.1.2", "torchvision==0.16.2" to "torch==2.2.0", "torchvision==0.17.0" in pyproject.toml
-cp -f pyproject.toml MagicQuill/LLaVA/
-pip install -e MagicQuill/LLaVA/
-pip install -r requirements.txt
-python main.py
+source venv_7/bin/activate 
+cd backend/MagicQuill
+uvicorn main:backend --host 0.0.0.0 --port 8012
+```
+14.InvisMark - for adding watermark to the image
+```bash
+source venv_1/bin/activate
+cd backend/InvisMark
+gdown --fuzzy "https://drive.google.com/file/d/1XslNWwvKAyclYrY6cTczqvWV9V9vilv5/view?usp=drive_link" 
+uvicorn main:app --host 0.0.0.0 --port 8013
 ```
 Or you can also use the python file to run all commands with a single python file
 ```bash
@@ -392,7 +382,10 @@ LBM Relighting performs illumination transfer in a single step by mbackending th
 ---
 
 ## Ethics and Watermark
-
+### 1.InvisMark
+#### Pipeline Explanation 
+InvisMark embeds an invisible 256-bit watermark by passing the input image through a neural encoder that adds a subtle, imperceptible residual into the pixel space. During training, the embedded image is routed through a robustness module that applies real-world distortions—such as JPEG compression, noise, blur, cropping, and color shifts—to ensure the watermark remains stable under common manipulations. A paired neural decoder is then used to reliably extract the watermark from the distorted outputs, while the loss function jointly optimizes perceptual similarity and extraction accuracy. This feed-forward encode–distort–decode pipeline enables high-capacity, invisible watermarking that remains intact even after aggressive editing or compression.
+#### Examples
 ## Compute Profile
 All experiments were conducted on Runpod NVIDIA RTX 4090 GPUs for inference, while Runpod NVIDIA A40 GPUs were used for training the personalized LoRA models.
 
