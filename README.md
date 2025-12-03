@@ -175,6 +175,12 @@ cd backend/InvisMark
 gdown --fuzzy "https://drive.google.com/file/d/1XslNWwvKAyclYrY6cTczqvWV9V9vilv5/view?usp=drive_link" 
 uvicorn main:app --host 0.0.0.0 --port 8013
 ```
+15.Gaurd Rails
+```bash
+source venv_5/bin/activate
+cd backend/NSFW
+uvicorn main:app --host 0.0.0.0 --port 8014
+```
 Or you can also use the python file to run all commands with a single python file
 ```bash
 python run_all.py
@@ -389,6 +395,12 @@ LBM Relighting performs illumination transfer in a single step by mbackending th
 ### 1.InvisMark
 #### Pipeline Explanation 
 InvisMark embeds an invisible 256-bit watermark by passing the input image through a neural encoder that adds a subtle, imperceptible residual into the pixel space. During training, the embedded image is routed through a robustness module that applies real-world distortions—such as JPEG compression, noise, blur, cropping, and color shifts—to ensure the watermark remains stable under common manipulations. A paired neural decoder is then used to reliably extract the watermark from the distorted outputs, while the loss function jointly optimizes perceptual similarity and extraction accuracy. This feed-forward encode–distort–decode pipeline enables high-capacity, invisible watermarking that remains intact even after aggressive editing or compression.
+#### Examples
+<img width="1717" height="604" alt="image" src="https://github.com/user-attachments/assets/5ace0c40-c274-4a50-b444-9aac28916a35" />
+
+### 2.NSFW Content Guard Rails 
+#### Pipeline Explanation 
+
 #### Examples
 <img width="1717" height="604" alt="image" src="https://github.com/user-attachments/assets/5ace0c40-c274-4a50-b444-9aac28916a35" />
 
