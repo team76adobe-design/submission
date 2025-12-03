@@ -1,3 +1,10 @@
+
+<h1 align="center">LUMOS : Image Editor of 2030</h1>
+<p align="center">
+ <img width="250" height="828" alt="image" src="https://github.com/user-attachments/assets/b65c498a-5488-4783-8879-c612654ececf" />
+</p>
+<br>
+
 ## Table of Contents
 - [Demo Video](#demo-video)
 - [Introduction](#introduction)
