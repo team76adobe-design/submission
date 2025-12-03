@@ -401,7 +401,7 @@ InvisMark embeds an invisible 256-bit watermark by passing the input image throu
 
 ### 2.NSFW Content Guard Rails 
 #### Pipeline Explanation 
-
+Using a CLIP-based similarity system as guard rails provides a fast, lightweight, and highly adaptable way to detect harmful or sensitive content across a very wide range of categories. Where most existing moderation systems—especially classical CNN classifiers and many commercial VLM safety filters—tend to perform well primarily on sexual or nudity-related content, they often fail to capture diverse real-world harms such as violence, extremism, weapons, drugs, traumatic scenes, or psychological risk indicators. In contrast, CLIP embeds images and an entire taxonomy of safety labels into the same semantic space, allowing it to detect dozens of nuanced risk categories without heavy model inference or handcrafted classifiers. It is 10–50× faster than full VLM caption-based moderation, requires far less GPU memory, and gives developers complete control over the labels, thresholds, and policies—making it transparent, customizable, and domain-adaptable. This makes CLIP a superior, general-purpose guard-rails mechanism that covers far more harmful scenarios than systems optimized mainly for sexual content detection.
 #### Examples
 <img width="1717" height="604" alt="image" src="https://github.com/user-attachments/assets/5ace0c40-c274-4a50-b444-9aac28916a35" />
 
