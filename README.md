@@ -1,3 +1,7 @@
+<h1 align="center">LUMOS : The Image Editor of 2030</h1>
+<p align="center">
+<img width="250"  alt="image" src="https://github.com/user-attachments/assets/ca41d8a5-a9ec-4095-a969-b8ffe2058e25" />
+</p> <br>
 ## Table of Contents
 - [Demo Video](#demo-video)
 - [Introduction](#introduction)
@@ -386,6 +390,8 @@ LBM Relighting performs illumination transfer in a single step by mbackending th
 #### Pipeline Explanation 
 InvisMark embeds an invisible 256-bit watermark by passing the input image through a neural encoder that adds a subtle, imperceptible residual into the pixel space. During training, the embedded image is routed through a robustness module that applies real-world distortions—such as JPEG compression, noise, blur, cropping, and color shifts—to ensure the watermark remains stable under common manipulations. A paired neural decoder is then used to reliably extract the watermark from the distorted outputs, while the loss function jointly optimizes perceptual similarity and extraction accuracy. This feed-forward encode–distort–decode pipeline enables high-capacity, invisible watermarking that remains intact even after aggressive editing or compression.
 #### Examples
+<img width="1717" height="604" alt="image" src="https://github.com/user-attachments/assets/5ace0c40-c274-4a50-b444-9aac28916a35" />
+
 ## Compute Profile
 All experiments were conducted on Runpod NVIDIA RTX 4090 GPUs for inference, while Runpod NVIDIA A40 GPUs were used for training the personalized LoRA models.
 
