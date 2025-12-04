@@ -12,6 +12,7 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [How to Use the Repository](#how-to-use-the-repository)
+- [Repository Structure](#repository-structure)
 - [Overview of Overall Inference](#overview-of-overall-inference)
 - [Text to Image](#text-to-image)
 - [Workflow 1 : AI-Enhanced Image editing Tools Specs](#workflow-1--ai-enhanced-image-editing-tools-specs)
