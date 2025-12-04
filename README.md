@@ -12,6 +12,7 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [How to Use the Repository](#how-to-use-the-repository)
+- [Overview of Overall Inference](#overview-of-overall-inference)
 - [Text to Image](#text-to-image)
 - [Workflow 1 : AI-Enhanced Image editing Tools Specs](#workflow-1--ai-enhanced-image-editing-tools-specs)
 - [Workflow 2 : Smart Composition and 3D Aware Object Insertion Specs](#workflow-2--smart-composition-and-3d-aware-object-insertion-specs)
@@ -199,6 +200,47 @@ Or you can also use the python file to run all commands with a single python fil
 python run_all.py
 ```
 These are all local pipelines. Similarly the cloud pipelines can be implemented from the given codes in the **CLOUD_FEATURES**.
+## Overview of Overall Inference 
+
+Our system is optimized for **low latency**, **efficient GPU usage**, and **high-quality image outputs**. Below is a detailed explanation of each major component in the inference pipeline.
+
+---
+
+###  Dynamic Model Loading (Load → Run → Unload)
+
+To ensure fast response times and optimal GPU memory utilization, each model is loaded **only when the user selects it**. When a tool is activated, a `POST /load_model` request initializes the corresponding model into GPU memory. After the user provides input—either an image or a prompt—the system executes `POST /run` to perform inference. Once the user returns to the main menu, `POST /unload` is triggered, freeing GPU resources. This prevents unnecessary memory consumption, eliminates repetitive heavy loads, and significantly improves inference speed across the system.
+
+---
+
+###  Optimized High-Resolution Image Pipeline (2K → 512 → 2K)
+
+The pipeline supports images up to **2K resolution**, but for faster computation, inputs are first downsampled to **512×512**. The core editing or generation task is performed at this reduced resolution to minimize latency. After processing, a **diffusion-based upscaler** reconstructs the output back to 2K by converting it into latent space, refining it, and producing a detailed, sharp high-resolution result. This approach balances speed with quality by performing heavy operations only where necessary.
+
+---
+
+###  Algorithmic Enhancements on Stable Diffusion 1.5
+
+We incorporate **optimized algorithms on top of SD 1.5**, dramatically improving both inference speed and output accuracy. These enhancements allow SD 1.5 to operate more efficiently than standard implementations while maintaining strong visual fidelity. Because of its versatility, SD 1.5 is reused for **more than 60% of all tasks**, minimizing model-switch overhead and reducing GPU load, which results in smoother and faster operations throughout the system.
+
+---
+
+###  Reuse of Moondream and CLIP for Auxiliary Tasks
+
+To further streamline the pipeline, models like **Moondream** and **CLIP** are reused across multiple subtasks. Moondream assists with lightweight VLM functions, while CLIP powers semantic reasoning, safety filtering, and classification. Reusing these models avoids repeated initializations, reduces memory fragmentation, and significantly accelerates workflows that rely on vision-language understanding or content validation.
+
+---
+
+###  Summary
+
+Through dynamic model loading, efficient image downsampling and upscaling, algorithmic improvements on SD 1.5, and strategic reuse of VLM components, the system delivers:
+
+-  Low latency  
+-  Efficient memory usage  
+-  High-quality high-resolution outputs  
+-  A clean, scalable, production-ready architecture  
+
+This makes the entire AI image editing experience extremely fast, resource-efficient, and user-friendly.
+
 ## Text to Image
 ### 1.Sana 1.6B Text to Image 
 #### Pipeline Explanation 
@@ -224,9 +266,7 @@ Our FLUX.1-dev pipeline combines two powerful components—Nunchaku’s SVD-quan
 
 
 ## Workflow 1 : AI-Enhanced Image editing Tools Specs
-For better memory management and reduced latency, each tool is loaded into GPU memory only when the user selects it. When a tool is chosen, the system triggers **POST** /load_model, loading the corresponding model. After the user provides the required input—either an image or a prompt—**POST** /run is executed to perform inference. Once the user returns to the main menu, **POST** /unload is called to free GPU memory, preventing unnecessary resource usage and significantly reducing overall inference time by avoiding repeated load/unload cycles.<br>
 
-Within the full pipeline, input images can be up to 2K resolution, but for faster inference they are temporarily downsampled to 512×512, processed, and then upscaled back to 2K using a diffusion-based upscaler. This model rapidly converts the image into latents, performs high-quality upscaling, and reconstructs a sharp, high-resolution output with minimal computational overhead.
 
 ### 1.MagicQuill
 #### Pipeline Explanation 
