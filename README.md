@@ -240,7 +240,7 @@ The system operates through a unified stroke-driven editing pipeline in which us
 LEDITS++ first inverts the input image into the diffusion latent space using a fast, error-free DPM-Solver++ inversion, ensuring perfect reconstruction. The model then backendlies text-guided edit vectors that modify only the intended semantic regions, guided by implicit masks derived from attention and noise-difference maps. Finally, the edited latent is decoded back into an image, producing precise, localized changes without affecting the rest of the content.
 #### Inference Time & Memory Used 
 * Inference Time - 6 seconds 
-* Memory Used - Under 8.5 Gb VRAM or backendroximately 9 Gb VRAM
+* Memory Used - Under 8.5 Gb VRAM or approximately 9 Gb VRAM
 
 #### Examples
 | Input Image | Brush Strokes Images | Output Image |
