@@ -243,7 +243,7 @@ LEDITS++ first inverts the input image into the diffusion latent space using a f
 * Memory Used - Under 8.5 Gb VRAM or approximately 9 Gb VRAM
 
 #### Examples
-| Input Image | Brush Strokes Images | Output Image |
+| Input Image | Prompt | Output Image |
 |-------------|---------|--------------|
 | <img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/3eb2f64d-8aa8-499a-a3a6-2fe78ff83f99" />| Add Sunglasses | <img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/7840ac6a-db2e-4dbf-8bf1-2da2e519c2fc" />|
 | <img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/9cceebae-5ee1-4561-852e-91b5bfedd90c" />|Increase the fur, while adding a little blackish shade. Also make ears more stiff. Turn eyes to yellow. | <img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/2ddf23a3-84ee-4b9a-ad28-2d2ba2cbc28d" />|
