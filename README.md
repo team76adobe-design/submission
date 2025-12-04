@@ -28,12 +28,12 @@ The problem statement asks us to imagine how creative tools - especially Photosh
 Our solution is built around two complementary workflows that together represent the future of AI‑assisted, mobile‑friendly image editing. Before entering either workflow, the user can begin by uploading an image or generating one using our user‑style personalized LoRA, ensuring a highly customized starting point. From there, the system branches into two specialized pipelines designed to support different creative needs. <br>
 
 #### Workflow 1 : AI-Enhanced Image editing Tools
-<img width="1504" height="827" alt="image" src="https://github.com/user-attachments/assets/85dc1014-d042-45e5-9717-a23a1f184b9b" />
+<img height="400" alt="workflow1" src="https://github.com/user-attachments/assets/6e53bbb0-c362-404d-8928-7250cf453d72" />
 
 
 The first workflow focuses on intuitive, fine‑grained image editing using a suite of advanced open‑source AI tools. It includes LeDits++ for image‑to‑image transformation, enabling users to refine or restyle their images with high fidelity. For artistic transformations, we integrate a style‑transfer module that automatically selects the most backendropriate style LoRA based on the user’s prompt and backendlies it seamlessly.Region‑level editing is supported through Segment Anything (SAM), which allows users to isolate any part of the image and then choose to erase it, inpaint new content, or manipulate it using Inpaint4Drag, a state‑of‑the‑art drag-based deformation model.Additionally, the workflow includes Lightning Drag, which enables users to adjust the direction or orientation an object is facing, and Generative Expand, an outpainting tool that extends scenes while preserving visual coherence. Together, these tools form an intelligent, flexible editing environment that reflects the natural, prompt‑driven editing experience envisioned for 2030. <br>
 #### Workflow 2: Smart Composition and 3D‑Aware Object Insertion
-<img width="1114" height="523" alt="Screenshot 2025-12-03 010331" src="https://github.com/user-attachments/assets/5dd8d362-dd49-4aea-8d03-3191728b9a69" />
+<img width="602" height="400" alt="workflow2" src="https://github.com/user-attachments/assets/2983a4fb-a409-41b5-baee-3f8a06ac68b3" />
 The second workflow is designed for high‑quality object insertion and blending, enabling users to integrate new elements into a scene with realism and spatial coherence.The process begins with Smart Crop, which prepares and focuses the base image. The user then selects any object image to insert, and the system automatically removes its background, isolating the subject. This extracted object is passed through a 2D‑to‑3D generation model, which reconstructs a lightweight 3D representation that allows proper orientation, scaling, and positioning relative to the target image. Once the 3D orientation is finalized, the object is composited back into the scene. The blended result is then refined through a relighting model, ensuring that shadows, highlights, and color temperature align with the background. Finally, the combined and harmonized output is delivered, producing an integrated and realistic image with minimal user effort.
 <br>
 
@@ -258,8 +258,9 @@ The Sana 1.6B text-to-image pipeline integrates a DiT-based diffusion model with
 #### Inference Time & Memory Used 
 * Inference Time - under 3 second for Image size of 2048 X 2048 
 * Memory Used - Under 9 Gb VRAM
+
 #### Examples
-<img width="256" height="256" alt="sana1 6b-int4" src="https://github.com/user-attachments/assets/0a0c1929-6e9d-4e0d-a958-43d0de14729e" /> <br>
+<img width="256" height="256" alt="sana1 6b-int4" src="https://github.com/user-attachments/assets/2286892e-a44e-44cd-803f-e492cd0ec716" /> <br>
 ### 2.Personalized Flux.1 Dev + Nunchaku:
 #### Pipeline Explanation
 Our FLUX.1-dev pipeline combines two powerful components—Nunchaku’s SVD-quantized 4-bit diffusion transformer and a personalized LoRA fine-tuning module—to deliver fast, memory-efficient, identity-aware image generation. During training, we fine-tune FLUX.1-dev using a lightweight LoRA (rank 16) on the UNet while keeping the text encoder frozen, allowing the model to learn a user’s identity from just 12 photos with high fidelity and minimal overfitting. Once personalization is complete, the LoRA module is merged into the quantized Nunchaku FLUX transformer, enabling inference in a low-VRAM environment without sacrificing detail, alignment, or identity consistency. The resulting system is capable of generating high-resolution, photorealistic, and identity-preserving images using simple prompts, while running 2× faster and using only ~30% of full-precision memory. This unified fine-tuning + 4-bit inference pipeline forms one of our core features—allowing rapid, personalized, and cost-efficient image generation on consumer GPUs.
