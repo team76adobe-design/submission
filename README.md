@@ -37,6 +37,14 @@ The first workflow focuses on intuitive, fine‑grained image editing using a su
 The second workflow is designed for high‑quality object insertion and blending, enabling users to integrate new elements into a scene with realism and spatial coherence.The process begins with Smart Crop, which prepares and focuses the base image. The user then selects any object image to insert, and the system automatically removes its background, isolating the subject. This extracted object is passed through a 2D‑to‑3D generation model, which reconstructs a lightweight 3D representation that allows proper orientation, scaling, and positioning relative to the target image. Once the 3D orientation is finalized, the object is composited back into the scene. The blended result is then refined through a relighting model, ensuring that shadows, highlights, and color temperature align with the background. Finally, the combined and harmonized output is delivered, producing an integrated and realistic image with minimal user effort.
 <br>
 
+## Repository Structure
+LUMOS/
+├── backend/        # On-device backend modules and model inference code
+├── cloud/          # Cloud pipelines, training scripts, and processing workflows
+├── figma/          # Figma frames, wireframes, and design assets
+├── frontend/       # Frontend UI code and application components
+└── report/         # All project reports and documentation files
+
 
 ## How to Use the Repository
 ```bash
