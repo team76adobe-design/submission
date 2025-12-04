@@ -3,9 +3,9 @@
 <img width="250"  alt="image" src="https://github.com/user-attachments/assets/ca41d8a5-a9ec-4095-a969-b8ffe2058e25" />
 
 ## Demo Video
-[![Watch the video](https://img.youtube.com/vi/8_Ilw67fWEA/maxresdefault.jpg)](https://youtu.be/8_Ilw67fWEA)
+[![Watch the video](https://img.youtube.com/vi/8_Ilw67fWEA/maxresdefault.jpg)](https://youtu.be/gvkKLRS0WCM)
 
-### [Watch the Demo on YouTube](https://youtu.be/8_Ilw67fWEA)
+### [Watch the Demo on YouTube](https://youtu.be/gvkKLRS0WCM)
 
 </p> <br>
 
