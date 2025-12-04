@@ -144,6 +144,7 @@ uvicorn main:backend --host 0.0.0.0 --port 8004
 ```bash
 source venv_2/bin/activate 
 cd backend/lightningDrag
+python download.py
 uvicorn main:backend --host 0.0.0.0 --port 8005 
 ```
 7.iopainttest <br> 
