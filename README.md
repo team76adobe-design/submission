@@ -61,7 +61,11 @@ LUMOS/
 ## How to Use the Repository
 ```bash
 git clone https://github.com/team76adobe-design/submission.git
+cd submission
+pip install huggingface-hub
+hf auth login
 ```
+Use this Huggingface Key --> "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"
 
 There have to be separate virtual environments for running different parts in the workflow. Overall there are 7 virtual environments to be used for the corresponding models- <br>
 1)Virtual Environment 1 - ledits, inpaint4drag, style transfer loras, background removal
