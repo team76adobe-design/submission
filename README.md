@@ -80,9 +80,19 @@ pip install -r requirements6.txt
 ```
 7)Virtual Environment 7 - MagicQuill
 ```bash
-python3.10 -m venv venv_7
-source venv_7/bin/activate
-pip install -r requirements7.txt
+cd backend/magicquill
+git submodule update --init --recursive
+wget -O models.zip "https://hkustconnect-my.sharepoint.com/:u:/g/personal/zliucz_connect_ust_hk/EWlGF0WfawJIrJ1Hn85_-3gB0MtwImAnYeWXuleVQcukMg?e=Gcjugg&download=1"
+unzip models.zip
+python -m venv Magic_venv
+source Magic_venv/bin/activate
+pip install torch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 --index-url https://download.pytorch.org/whl/cu118
+pip install gradio_magicquill-0.0.1-py3-none-any.whl
+#Change "torch==2.1.2", "torchvision==0.16.2" to "torch==2.2.0", "torchvision==0.17.0" in pyproject.toml
+cp -f pyproject.toml MagicQuill/LLaVA/
+pip install -e MagicQuill/LLaVA/
+pip install -r requirements.txt
+python main.py
 ```
 
 Running the Model:- <br>
