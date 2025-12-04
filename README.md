@@ -10,13 +10,13 @@
 - [Text to Image](#text-to-image)
 - [Workflow 1 : AI-Enhanced Image editing Tools Specs](#workflow-1--ai-enhanced-image-editing-tools-specs)
 - [Workflow 2 : Smart Composition and 3D Aware Object Insertion Specs](#workflow-2--smart-composition-and-3d-aware-object-insertion-specs)
-- [Ethics and Watermark](#ethics-and-watermark)
+- [Ethical Considerations](#ethical-considerations)
 - [Compute Profile](#compute-profile)
 - [References](#references)
 
 
 ## Demo Video
-[Click here to view the demo video](https://drive.google.com/file/d/1dt0chUdflothky4WjjR3X4cx4Y4h-HE1/view?usp=sharing)
+[Click here to view the demo video]([https://drive.google.com/file/d/1dt0chUdflothky4WjjR3X4cx4Y4h-HE1/view?usp=sharing](https://drive.google.com/file/d/1U3HGyiAxwVStutHh6WPEhEB-5oT1CUnz/view?usp=sharing))
 ## Introduction
 ### Problem understanding 
 The problem statement asks us to imagine how creative tools - especially Photoshop will evolve by 2030 in the world where mobile devices and AI-assisted workflows dominate. Current editing tools are powerful but still heavily dependent on manual operations, complex interfaces, and high computational resources. In contrast, the brief envisions a future where creators interact with images more naturally and effortlessly, using simple prompts, fluid gestures and most minimal hardware. The challenge is to indentify gap's in today's creative ecosystem and propose how AI can fill these gaps making editing faster, more intuitive, and more context aware. We are expected to deliver two workflows that demonstrate this shift : features that are not just "automated version of existing tools", but genuinely rethink how editing should feel when powered by intelligent models. These workflows must be grounded in real user pain points, supported by a clear market rationale, and implemented using open-source AI models capable of region selection, generation and inpainting. Overall the problem asks us to blend user research, design thinking and cutting edge AI to build a prototype that reflects the creative experience of 2030-lightweight, intelligent and human-centric.
@@ -392,18 +392,24 @@ LBM Relighting performs illumination transfer in a single step by mbackending th
 
 ---
 
-## Ethics and Watermark
+## Ethical Considerations
 ### 1.InvisMark
 #### Pipeline Explanation 
 InvisMark embeds an invisible 256-bit watermark by passing the input image through a neural encoder that adds a subtle, imperceptible residual into the pixel space. During training, the embedded image is routed through a robustness module that applies real-world distortions—such as JPEG compression, noise, blur, cropping, and color shifts—to ensure the watermark remains stable under common manipulations. A paired neural decoder is then used to reliably extract the watermark from the distorted outputs, while the loss function jointly optimizes perceptual similarity and extraction accuracy. This feed-forward encode–distort–decode pipeline enables high-capacity, invisible watermarking that remains intact even after aggressive editing or compression.
 #### Examples
 <img width="1717" height="604" alt="image" src="https://github.com/user-attachments/assets/5ace0c40-c274-4a50-b444-9aac28916a35" />
 
-### 2.NSFW Content Guard Rails 
+### 2.NSFW Content Guardrails 
 #### Pipeline Explanation 
-Using a CLIP-based similarity system as guard rails provides a fast, lightweight, and highly adaptable way to detect harmful or sensitive content across a very wide range of categories. Where most existing moderation systems—especially classical CNN classifiers and many commercial VLM safety filters—tend to perform well primarily on sexual or nudity-related content, they often fail to capture diverse real-world harms such as violence, extremism, weapons, drugs, traumatic scenes, or psychological risk indicators. In contrast, CLIP embeds images and an entire taxonomy of safety labels into the same semantic space, allowing it to detect dozens of nuanced risk categories without heavy model inference or handcrafted classifiers. It is 10–50× faster than full VLM caption-based moderation, requires far less GPU memory, and gives developers complete control over the labels, thresholds, and policies—making it transparent, customizable, and domain-adaptable. This makes CLIP a superior, general-purpose guard-rails mechanism that covers far more harmful scenarios than systems optimized mainly for sexual content detection.
+Using a CLIP-based similarity system as guard rails provides a fast, lightweight, and highly adaptable way to detect harmful or sensitive content across a very broad risk spectrum. While many existing moderation approaches—especially classical detectors and even several commercial VLM-based filters—perform strongly mainly on sexual or nudity-related content, they often miss non-sexual harms such as violence, weapons, extremism, drugs, or psychologically disturbing scenes. In contrast, CLIP embeds both images and a rich taxonomy of safety labels into the same semantic space, enabling it to surface the top 3 highest-scoring NSFW categories and mark them as violations when their similarity exceeds a defined threshold, creating a precise and transparent rule-based moderation pipeline. This makes detection fast (10–50× faster than VLM captioning), far more GPU-efficient, and fully controllable—developers can easily add, remove, or tune categories to match policy requirements. Overall, this CLIP-driven strategy offers a significantly broader, more interpretable, and more scalable guard-rails system compared to methods that specialize only in sexual content moderation.
 #### Examples
-<img width="1717" height="604" alt="image" src="https://github.com/user-attachments/assets/5ace0c40-c274-4a50-b444-9aac28916a35" />
+   <img width="900" height="600" alt="image" src="https://github.com/user-attachments/assets/3c886b19-def2-401d-a3e8-e8875772e130" /><br>
+   <img width="387" height="140" alt="image" src="https://github.com/user-attachments/assets/42282726-1d30-474c-9095-935ea56e2ff6" /><br>
+
+
+
+### 3.Privacy
+
 
 ## Compute Profile
 All experiments were conducted on Runpod NVIDIA RTX 4090 GPUs for inference, while Runpod NVIDIA A40 GPUs were used for training the personalized LoRA models.
@@ -488,4 +494,9 @@ All experiments were conducted on Runpod NVIDIA RTX 4090 GPUs for inference, whi
 18. **Xie, E., Chen, J., Chen, J., Cai, H., Tang, H., Lin, Y., Zhang, Z., Li, M., Zhu, L., Lu, Y., & Han, S. (2024).**  
     *SANA: Efficient High-Resolution Image Synthesis with Linear Diffusion Transformers.*  
     arXiv:2410.10629 [cs.CV]  
-    https://arxiv.org/abs/2410.10629  
+    https://arxiv.org/abs/2410.10629
+
+19. **Rui Xu, Mengya Hu, Deren Lei, Yaxi Li, David Lowe, Alex Gorevski, Mingyu Wang, Emily Ching, and Alex Deng (2024).** 
+   *InvisMark: Invisible and Robust Watermarking for AI-generated Image Provenance*
+    arXiv:2411.07795 [cs.CV]  
+   https://arxiv.org/abs/2411.07795
