@@ -1,10 +1,15 @@
 <h1 align="center">LUMOS : The Image Editor of 2030</h1>
 <p align="center">
 <img width="250"  alt="image" src="https://github.com/user-attachments/assets/ca41d8a5-a9ec-4095-a969-b8ffe2058e25" />
+
+## Demo Video
+[![Watch the video](https://img.youtube.com/vi/8_Ilw67fWEA/maxresdefault.jpg)](https://youtu.be/8_Ilw67fWEA)
+
+### [Watch the Demo on YouTube](https://youtu.be/8_Ilw67fWEA)
+
 </p> <br>
 
 ## Table of Contents
-- [Demo Video](#demo-video)
 - [Introduction](#introduction)
 - [How to Use the Repository](#how-to-use-the-repository)
 - [Text to Image](#text-to-image)
@@ -14,9 +19,6 @@
 - [Compute Profile](#compute-profile)
 - [References](#references)
 
-
-## Demo Video
-[Click here to view the demo video](https://drive.google.com/file/d/1U3HGyiAxwVStutHh6WPEhEB-5oT1CUnz/view?usp=sharing)
 ## Introduction
 ### Problem understanding 
 The problem statement asks us to imagine how creative tools - especially Photoshop will evolve by 2030 in the world where mobile devices and AI-assisted workflows dominate. Current editing tools are powerful but still heavily dependent on manual operations, complex interfaces, and high computational resources. In contrast, the brief envisions a future where creators interact with images more naturally and effortlessly, using simple prompts, fluid gestures and most minimal hardware. The challenge is to indentify gap's in today's creative ecosystem and propose how AI can fill these gaps making editing faster, more intuitive, and more context aware. We are expected to deliver two workflows that demonstrate this shift : features that are not just "automated version of existing tools", but genuinely rethink how editing should feel when powered by intelligent models. These workflows must be grounded in real user pain points, supported by a clear market rationale, and implemented using open-source AI models capable of region selection, generation and inpainting. Overall the problem asks us to blend user research, design thinking and cutting edge AI to build a prototype that reflects the creative experience of 2030-lightweight, intelligent and human-centric.
