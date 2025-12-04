@@ -3,7 +3,14 @@
 <img width="250"  alt="image" src="https://github.com/user-attachments/assets/ca41d8a5-a9ec-4095-a969-b8ffe2058e25" />
 
 ## Demo Video
-[![Watch the video](https://img.youtube.com/vi/8_Ilw67fWEA/maxresdefault.jpg)](https://youtu.be/gvkKLRS0WCM)
+
+<a href="https://youtu.be/gvkKLRS0WCM">
+  <img src="https://img.youtube.com/vi/8_Ilw67fWEA/maxresdefault.jpg" 
+       alt="Watch the video" 
+       width="500">
+</a>
+
+
 
 ### [Watch the Demo on YouTube](https://youtu.be/gvkKLRS0WCM)
 
