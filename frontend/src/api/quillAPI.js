@@ -80,7 +80,7 @@ export const runMagicQuillFullCycle = async ({
        3️⃣ UNLOAD MODEL
     -------------------------- */
     // Not required every time — huge slowdown
-    // const unloadResp = await hitBackend(PORT, "/unload", { method: "POST" });
+    const unloadResp = await hitBackend(PORT, "/unload", { method: "POST" });
 
     return finalOutput;
   } catch (error) {

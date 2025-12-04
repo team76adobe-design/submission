@@ -130,13 +130,13 @@ export const processImageTo3D = async (imageFile) => {
     const glbBlob = await generateSF3DModel(imageFile);
 
     // Step 3: Unload the model
-    // await unloadSF3DModel();
+    await unloadSF3DModel();
 
     return glbBlob;
   } catch (error) {
     // Ensure we try to unload even if there's an error
     try {
-      // await unloadSF3DModel();
+      await unloadSF3DModel();
     } catch (unloadError) {
       console.error('Error during cleanup:', unloadError);
     }

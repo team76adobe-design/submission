@@ -92,7 +92,7 @@ export default function Chat() {
       });
 
       // Unload model after generation to free up resources
-      // unloadTextToImageModel().catch(err => console.warn('Failed to unload text-to-image model:', err));
+      unloadTextToImageModel().catch(err => console.warn('Failed to unload text-to-image model:', err));
 
       let imageUrl = null;
 
@@ -116,7 +116,7 @@ export default function Chat() {
       console.error('Generation failed:', error);
       toast.error('Failed to generate image: ' + (error.message || 'Unknown error'));
       // Also unload on error
-      // unloadTextToImageModel().catch(err => console.warn('Failed to unload text-to-image model:', err));
+      unloadTextToImageModel().catch(err => console.warn('Failed to unload text-to-image model:', err));
     } finally {
       setIsGenerating(false);
       setIsModelLoaded(false); // Reset so it reloads next time

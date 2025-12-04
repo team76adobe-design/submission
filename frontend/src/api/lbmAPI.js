@@ -133,13 +133,13 @@ export const processRelighting = async (imageFile, steps = 1) => {
     const relitBlob = await runRelighting(imageFile, steps);
 
     // Step 3: Unload the model
-    // await unloadLBMModel();
+    await unloadLBMModel();
 
     return relitBlob;
   } catch (error) {
     // Ensure we try to unload even if there's an error
     try {
-      // await unloadLBMModel();
+      await unloadLBMModel();
     } catch (unloadError) {
       console.error('Error during cleanup:', unloadError);
     }

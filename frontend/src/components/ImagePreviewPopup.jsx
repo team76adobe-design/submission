@@ -154,7 +154,7 @@ const ImagePreviewPopup = ({ isVisible, imageFile, backgroundImage, onClose }) =
           setIsProcessing(false); // Stop looping
           setIsCompleted(true); // Show final result immediately
 
-          // await unloadBackgroundRemovalModel();
+          await unloadBackgroundRemovalModel();
           console.log('Background removal complete!');
 
         } catch (error) {
@@ -165,7 +165,7 @@ const ImagePreviewPopup = ({ isVisible, imageFile, backgroundImage, onClose }) =
 
           // Try to cleanup
           try {
-            // await unloadBackgroundRemovalModel();
+            await unloadBackgroundRemovalModel();
           } catch (cleanupError) {
             console.error('Cleanup error:', cleanupError);
           }
